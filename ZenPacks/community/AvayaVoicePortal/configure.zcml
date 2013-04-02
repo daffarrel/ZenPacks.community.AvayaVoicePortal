@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:zcml="http://namespaces.zope.org/zcml">
+        <configure zcml:condition="installed Products.Zuul">
+        
+        	<include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+        	<!-- Global Info -->
+
+            <browser:directRouter
+                name="AvayaVoicePortal_router"
+                for="*"
+                class=".routers.AvayaVoicePortalRouter"
+                namespace="Zenoss.remote"
+                permission="zenoss.View"
+            />
+    
+            <adapter
+                name="AvayaVoicePortalAdapter"
+                provides=".interfaces.IAvayaVoicePortalFacade"
+                for="*"
+                factory=".facades.AvayaVoicePortalFacade"
+            />
+                
+            <browser:resourceDirectory
+                    name="AvayaVoicePortal"
+                    directory="resources"
+            />
+                
+            <!-- Component Info -->
+            <adapter factory=".info.AvayaVoicePortalMPPPInfo"
+                for=".AvayaVoicePortalMPPP.AvayaVoicePortalMPPP"
+                provides=".interfaces.IAvayaVoicePortalMPPPInfo"
+            />
+    
+            <browser:viewlet
+                name="js-AvayaVoicePortalMPPP"
+                paths="/++resource++AvayaVoicePortal/avayavoiceportalmppp.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+
+            <!-- Component Info -->
+            <adapter factory=".info.AvayaVoicePortalApplicationPInfo"
+                for=".AvayaVoicePortalApplicationP.AvayaVoicePortalApplicationP"
+                provides=".interfaces.IAvayaVoicePortalApplicationPInfo"
+            />
+    
+            <browser:viewlet
+                name="js-AvayaVoicePortalApplicationP"
+                paths="/++resource++AvayaVoicePortal/avayavoiceportalapplicationp.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+
+        
+        </configure>
+    </configure>
+
