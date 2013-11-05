@@ -4,63 +4,72 @@
         xmlns:browser="http://namespaces.zope.org/browser"
         xmlns:zcml="http://namespaces.zope.org/zcml">
         <configure zcml:condition="installed Products.Zuul">
-        
-        	<include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
-        	<!-- Global Info -->
+
+            <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
+
+            <!-- ZenPack Info -->
 
             <browser:directRouter
                 name="AvayaVoicePortal_router"
                 for="*"
-                class=".routers.AvayaVoicePortalRouter"
+                class="ZenPacks.community.AvayaVoicePortal.routers.AvayaVoicePortalRouter"
                 namespace="Zenoss.remote"
                 permission="zenoss.View"
             />
     
             <adapter
                 name="AvayaVoicePortalAdapter"
-                provides=".interfaces.IAvayaVoicePortalFacade"
+                provides="ZenPacks.community.AvayaVoicePortal.interfaces.IAvayaVoicePortalFacade"
                 for="*"
-                factory=".facades.AvayaVoicePortalFacade"
+                factory="ZenPacks.community.AvayaVoicePortal.facades.AvayaVoicePortalFacade"
             />
                 
             <browser:resourceDirectory
                     name="AvayaVoicePortal"
                     directory="resources"
             />
-                
+
             <!-- Component Info -->
-            <adapter factory=".info.AvayaVoicePortalMPPPInfo"
-                for=".AvayaVoicePortalMPPP.AvayaVoicePortalMPPP"
-                provides=".interfaces.IAvayaVoicePortalMPPPInfo"
+            <adapter factory="ZenPacks.community.AvayaVoicePortal.info.AvayaVoicePortalApplicationInfo"
+                for="ZenPacks.community.AvayaVoicePortal.AvayaVoicePortalApplication.AvayaVoicePortalApplication"
+                provides="ZenPacks.community.AvayaVoicePortal.interfaces.IAvayaVoicePortalApplicationInfo"
             />
     
             <browser:viewlet
-                name="js-AvayaVoicePortalMPPP"
-                paths="/++resource++AvayaVoicePortal/avayavoiceportalmppp.js"
+                name="js-AvayaVoicePortalApplication"
+                paths="/++resource++AvayaVoicePortal/avayavoiceportalapplication.js"
                 weight="10"
                 manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
                 class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
                 permission="zope2.Public"
             />
 
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.AvayaVoicePortalApplicationgetEventClassesVocabulary"
+                name="AvayaVoicePortalApplicationgetEventClasses"
+            />
 
             <!-- Component Info -->
-            <adapter factory=".info.AvayaVoicePortalApplicationPInfo"
-                for=".AvayaVoicePortalApplicationP.AvayaVoicePortalApplicationP"
-                provides=".interfaces.IAvayaVoicePortalApplicationPInfo"
+            <adapter factory="ZenPacks.community.AvayaVoicePortal.info.AvayaVoicePortalMPPInfo"
+                for="ZenPacks.community.AvayaVoicePortal.AvayaVoicePortalMPP.AvayaVoicePortalMPP"
+                provides="ZenPacks.community.AvayaVoicePortal.interfaces.IAvayaVoicePortalMPPInfo"
             />
     
             <browser:viewlet
-                name="js-AvayaVoicePortalApplicationP"
-                paths="/++resource++AvayaVoicePortal/avayavoiceportalapplicationp.js"
+                name="js-AvayaVoicePortalMPP"
+                paths="/++resource++AvayaVoicePortal/avayavoiceportalmpp.js"
                 weight="10"
                 manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
                 class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
                 permission="zope2.Public"
             />
 
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.AvayaVoicePortalMPPgetEventClassesVocabulary"
+                name="AvayaVoicePortalMPPgetEventClasses"
+            />
 
-        
         </configure>
     </configure>
 

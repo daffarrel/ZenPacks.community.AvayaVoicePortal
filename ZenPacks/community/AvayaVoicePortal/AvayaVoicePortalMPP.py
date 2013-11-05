@@ -1,6 +1,5 @@
 from ZenPacks.community.ConstructionKit.ClassHelper import *
 
-class AvayaVoicePortalRouter(ClassHelper.AvayaVoicePortalRouter):
+class AvayaVoicePortalMPP(ClassHelper.AvayaVoicePortalMPP):
     ''''''
-
 
