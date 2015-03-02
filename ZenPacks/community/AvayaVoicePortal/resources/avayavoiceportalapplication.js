@@ -9,7 +9,11 @@
             return ob;
         }
     }
-
+    
+    function pass_link(ob){ 
+        return ob; 
+    }
+    
     ZC.AvayaVoicePortalApplicationPanel = Ext.extend(ZC.ComponentGridPanel, {
         constructor: function(config) {
             config = Ext.applyIf(config||{}, {
@@ -80,51 +84,58 @@
                         "dataIndex": "name"
                     }, 
                     {
-                        "header": "Associate URL", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Associate URL", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppAssociateURL", 
                         "dataIndex": "avpEntryAppAssociateURL"
                     }, 
                     {
-                        "header": "Called URI", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Called URI", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppCalledURI", 
                         "dataIndex": "avpEntryAppCalledURI"
                     }, 
                     {
-                        "header": "DNIS", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "DNIS", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppDNIS", 
                         "dataIndex": "avpEntryAppDNIS"
                     }, 
                     {
-                        "header": "Name", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Name", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppName", 
                         "dataIndex": "avpEntryAppName"
                     }, 
                     {
-                        "header": "URL", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "URL", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppURL", 
                         "dataIndex": "avpEntryAppURL"
                     }, 
                     {
-                        "header": "URL Host", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "URL Host", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppURLHost", 
                         "dataIndex": "avpEntryAppURLHost"
                     }, 
                     {
-                        "header": "URL Port", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "URL Port", 
+                        "renderer": "pass_link", 
                         "id": "avpEntryAppURLPort", 
                         "dataIndex": "avpEntryAppURLPort"
                     }, 

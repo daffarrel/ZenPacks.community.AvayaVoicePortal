@@ -2,7 +2,7 @@ from ZenPacks.community.ConstructionKit.BasicDefinition import *
 from ZenPacks.community.ConstructionKit.Construct import *
 
 BASE = "AvayaVoicePortal"
-VERSION = Version(2, 1, 0)
+VERSION = Version(2, 1, 1)
 
 DefinitionMPP = type('DefinitionMPP', (BasicDefinition,), {
         'version' : VERSION,
@@ -19,6 +19,7 @@ DefinitionMPP = type('DefinitionMPP', (BasicDefinition,), {
                                         'avpMPPEntryVersion' : addProperty('Version','Basic',optional='false'),
                                         },
                           },
+        'componentMethods' : [],                                       
         }
 )
 
@@ -43,6 +44,7 @@ DefinitionApp = type('DefinitionApp', (BasicDefinition,),{
                                         'avpEntryAppAssociateURL1' : addProperty('Associate URL 1','Basic'),
                                         },
                           },
+        'componentMethods' : [],                                       
         }
 )
 

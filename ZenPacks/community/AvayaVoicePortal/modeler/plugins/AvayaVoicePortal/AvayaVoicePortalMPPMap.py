@@ -2,6 +2,14 @@ from Products.DataCollector.plugins.CollectorPlugin import SnmpPlugin, GetMap, G
 from Products.DataCollector.plugins.DataMaps import ObjectMap
 from ZenPacks.community.AvayaVoicePortal.Definition import *
 
+__doc__ = """AvayaVoicePortalMPPMap
+
+AvayaVoicePortalMPPMap detects Avaya Voice Portal MPPs
+
+"""
+
+
+
 class AvayaVoicePortalMPPMap(SnmpPlugin):
     
     compname = "os"

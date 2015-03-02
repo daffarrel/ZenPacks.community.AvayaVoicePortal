@@ -28,6 +28,9 @@ ${here/avpEntryAppName}
 <property switch="-a" type="boolean" id="auth" mode="w" >
 False
 </property>
+<property switch="None" type="string" id="authUser" mode="w" >
+${here/authUser}
+</property>
 <property switch="-C" type="int" id="cert" mode="w" >
 False
 </property>
@@ -37,8 +40,14 @@ text/html
 <property switch="None" type="int" id="cycletime" mode="w" >
 60
 </property>
+<property switch="-R" type="string" id="eregex" mode="w" >
+${here/eregex}
+</property>
 <property switch="None" type="string" id="eventComponent" mode="w" >
 ${here/avpEntryAppName}
+</property>
+<property switch="-e" type="string" id="expect" mode="w" >
+${here/expect}
 </property>
 <property switch="-H" type="string" id="hostname" mode="w" >
 ${here/avpEntryAppURLHost}
@@ -49,6 +58,12 @@ False
 <property switch="-I" type="string" id="ip" mode="w" >
 ${here/avpEntryAppURLHost}
 </property>
+<property switch="-M" type="string" id="maxage" mode="w" >
+${here/maxage}
+</property>
+<property switch="-j" type="string" id="method" mode="w" >
+${here/method}
+</property>
 <property switch="-N" type="boolean" id="nobody" mode="w" >
 False
 </property>
@@ -58,8 +73,23 @@ follow
 <property switch="-p" type="string" id="port" mode="w" >
 ${here/avpEntryAppURLPort}
 </property>
+<property switch="-P" type="string" id="post" mode="w" >
+${here/post}
+</property>
 <property switch="-b" type="boolean" id="proxyAuth" mode="w" >
 False
+</property>
+<property switch="None" type="string" id="proxyAuthUser" mode="w" >
+${here/proxyAuthUser}
+</property>
+<property switch="-r" type="string" id="regex" mode="w" >
+${here/regex}
+</property>
+<property switch="-S" type="boolean" id="ssl" mode="w" >
+True
+</property>
+<property switch="-s" type="string" id="string" mode="w" >
+${here/string}
 </property>
 <property switch="-t" type="int" id="timeout" mode="w" >
 300
@@ -862,5 +892,8 @@ AVERAGE
 </object>
 <!-- ('', 'zport', 'dmd', 'Events', 'App', 'AvayaAVP') -->
 <object id='/zport/dmd/Events/App/AvayaAVP' module='Products.ZenEvents.EventClass' class='EventClass'>
+<property type="text" id="transform" mode="w" >
+setPDKey('telecomServiceKey')
+</property>
 </object>
 </objects>

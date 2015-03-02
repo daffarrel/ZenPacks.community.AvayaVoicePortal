@@ -1,8 +1,14 @@
 from Products.DataCollector.plugins.CollectorPlugin import SnmpPlugin, GetMap, GetTableMap
 from Products.DataCollector.plugins.DataMaps import ObjectMap
 from ZenPacks.community.AvayaVoicePortal.Definition import *
-
 from urlparse import urlparse
+
+__doc__ = """AvayaVoicePortalApplicationMap
+
+AvayaVoicePortalApplicationMap detects Avaya Voice Portal Applications
+
+"""
+
 
 class AvayaVoicePortalApplicationMap(SnmpPlugin):
     

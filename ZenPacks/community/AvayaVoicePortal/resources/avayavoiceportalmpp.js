@@ -9,7 +9,11 @@
             return ob;
         }
     }
-
+    
+    function pass_link(ob){ 
+        return ob; 
+    }
+    
     ZC.AvayaVoicePortalMPPPanel = Ext.extend(ZC.ComponentGridPanel, {
         constructor: function(config) {
             config = Ext.applyIf(config||{}, {
@@ -68,23 +72,26 @@
                         "dataIndex": "name"
                     }, 
                     {
-                        "header": "IP", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "IP", 
+                        "renderer": "pass_link", 
                         "id": "avpMPPEntryIPAddress", 
                         "dataIndex": "avpMPPEntryIPAddress"
                     }, 
                     {
-                        "header": "Name", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Name", 
+                        "renderer": "pass_link", 
                         "id": "avpMPPEntryName", 
                         "dataIndex": "avpMPPEntryName"
                     }, 
                     {
-                        "header": "Version", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Version", 
+                        "renderer": "pass_link", 
                         "id": "avpMPPEntryVersion", 
                         "dataIndex": "avpMPPEntryVersion"
                     }, 
